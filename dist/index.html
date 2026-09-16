@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#07182f">
+  <meta name="description" content="A focused pocket reference for guitar chord voicings.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>Chord Pocket</title>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#browse" aria-label="Chord Pocket, Browse">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>Chord Pocket</span>
+      </a>
+      <div class="header-meta">
+        <span id="catalog-status" class="catalog-status" aria-live="polite">Loading chords…</span>
+        <button id="offline-status" class="offline-status" type="button" hidden aria-label="Offline preparation status"></button>
+      </div>
+    </header>
+
+    <main id="app-main" tabindex="-1">
+      <section id="browse-view" class="view" data-view="browse" aria-labelledby="browse-title">
+        <div class="view-heading">
+          <div>
+            
+            <h1 id="browse-title">Browse chords</h1>
+          </div>
+          <span class="result-count" id="result-count" aria-live="polite"></span>
+        </div>
+        <div class="browse-tools" role="search">
+          <label class="search-field">
+            <span class="sr-only">Search chords</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 5 5"></path></svg>
+            <input id="search-input" type="search" autocomplete="off" placeholder="Search root, name or alias" enterkeyhint="search">
+            <button id="clear-search" type="button" aria-label="Clear search" hidden>×</button>
+          </label>
+          <details id="family-filter" class="family-filter">
+            <summary><span id="family-filter-label">All families</span><span aria-hidden="true">⌄</span></summary>
+            <div class="family-panel">
+              <label class="family-all"><input id="all-families" type="checkbox" checked> All families</label>
+              <label class="shape-toggle"><input id="show-all-shapes" type="checkbox"> Show all shapes</label>
+              <fieldset id="type-filter"><legend class="sr-only">Chord families to display</legend></fieldset>
+            </div>
+          </details>
+        </div>
+        <div id="browse-error" class="state-panel error-panel" hidden>
+          <span class="state-icon" aria-hidden="true">!</span>
+          <div><h2>Couldn’t load the chord library</h2><p>Check the connection and try again.</p></div>
+          <button id="retry-load" class="button button-secondary" type="button">Retry</button>
+        </div>
+        <div id="browse-empty" class="state-panel" hidden>
+          <span class="state-icon" aria-hidden="true">⌕</span>
+          <div><h2>No matching chords</h2><p>Try a different root, name, alias or type.</p></div>
+        </div>
+        <div id="chord-grid" class="chord-grid" aria-live="polite"></div>
+      </section>
+
+      <section id="saved-view" class="view" data-view="saved" aria-labelledby="saved-title" hidden>
+        <div class="view-heading">
+          <div><h1 id="saved-title">My Chords</h1></div>
+          <span class="result-count" id="saved-count"></span>
+        </div>
+        <div id="saved-empty" class="state-panel" hidden>
+          <span class="state-icon" aria-hidden="true">＋</span>
+          <div><h2>Your set is empty</h2><p>Add voicings from Browse to keep them close.</p><button class="button button-primary inline-button" type="button" data-go="browse">Browse chords</button></div>
+        </div>
+        <div id="saved-grid" class="chord-grid saved-grid"></div>
+      </section>
+
+      <section id="practice-view" class="view practice-view" data-view="practice" aria-labelledby="practice-title" hidden>
+        <div class="view-heading practice-heading">
+          <div><h1 id="practice-title">Practice</h1></div>
+          <span class="result-count" id="practice-progress"></span>
+        </div>
+        <div id="practice-empty" class="state-panel" hidden>
+          <span class="state-icon" aria-hidden="true">♢</span>
+          <div><h2>Choose chords first</h2><p>Build a small set in Browse, then return here to practice.</p><button class="button button-primary inline-button" type="button" data-go="browse">Browse chords</button></div>
+        </div>
+        <div id="practice-stage" class="practice-stage" hidden>
+          <div id="practice-card" class="practice-card" aria-live="polite">
+            <p id="practice-kicker" class="practice-kicker">Recall this chord</p>
+            <div id="practice-name-wrap" class="practice-name-wrap"><h2 id="practice-name"></h2><span id="practice-shape" class="shape-label"></span></div>
+            <div id="practice-reveal" class="practice-reveal" hidden>
+              <div id="practice-diagram"></div>
+            </div>
+            <div id="practice-cover" class="practice-cover">
+              <span class="cover-glyph" aria-hidden="true">♩</span>
+              <p>Think through the shape, then reveal it.</p>
+              <button id="show-practice" class="button button-secondary" type="button">Show diagram</button>
+              <span id="reveal-countdown" class="countdown" aria-live="polite">Reveals in 3s</span>
+            </div>
+            <div id="practice-complete" class="practice-complete" hidden><span class="cover-glyph" aria-hidden="true">✓</span><h2>Round complete</h2><p>Shuffle the set and go again when you’re ready.</p></div>
+            <button id="next-practice" class="button button-primary next-button" type="button" disabled>Next chord <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="practice-actions"><button id="restart-practice" class="text-button" type="button">Shuffle again</button><button id="end-practice" class="text-button" type="button">End session</button></div>
+        </div>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main navigation">
+      <a class="nav-item is-active" data-tab="browse" href="#browse"><span class="nav-icon" aria-hidden="true">⌕</span><span>Browse</span></a>
+      <a class="nav-item" data-tab="saved" href="#saved"><span class="nav-icon" aria-hidden="true">＋</span><span>My Chords</span><span id="nav-saved-count" class="nav-badge" hidden></span></a>
+      <a class="nav-item" data-tab="practice" href="#practice"><span class="nav-icon" aria-hidden="true">♩</span><span>Practice</span></a>
+    </nav>
+  </div>
+
+  <dialog id="detail-dialog" class="detail-dialog" aria-labelledby="detail-name">
+    <div class="dialog-head"><div><p class="eyebrow">Chord voicing</p><h2 id="detail-name"></h2><p id="detail-meta" class="detail-meta"></p></div><button id="close-dialog" class="icon-button" type="button" aria-label="Close chord details">×</button></div>
+    <div class="detail-body"><div id="detail-diagram"></div><div class="legend"><h3>Diagram key</h3><div class="legend-row"><span class="legend-symbol played"></span><span>Fretted note</span></div><div class="legend-row"><span class="legend-symbol open"></span><span>Open string</span></div><div class="legend-row"><span class="legend-symbol root"></span><span>Root note</span></div><div class="legend-row"><span class="legend-symbol muted">×</span><span>Muted string</span></div></div></div>
+  </dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="app.js" defer></script>
+</body>
+</html>
