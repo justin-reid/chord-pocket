@@ -1,4 +1,4 @@
-const CACHE='chord-pocket-shell-v6';
+const CACHE='chord-pocket-shell-v7';
 const SHELL=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./favicon.svg','./icon-192.png','./icon-512.png','./chords.json'];
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(key=>(key.startsWith('chord-pocket-shell-')&&key!==CACHE)||key.startsWith('chord-pocket-diagrams-')).map(key=>caches.delete(key)));await self.clients.claim();})()));
