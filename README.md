@@ -8,7 +8,8 @@ Chord Pocket is a mobile-friendly guitar chord reference and flashcard app. It i
 - Filter by one or more chord families.
 - Show the first shape for each chord or every available shape.
 - Add and remove chords from a personal practice set with one tap.
-- Review saved chords in a flashcard mode.
+- Practice saved chords as flashcards: the diagram hides for three seconds, then rate yourself **Nailed it** or **Missed it**.
+- Missed chords automatically re-enter the rotation until you nail every chord in the set.
 - Reveal each flashcard manually or automatically after three seconds.
 - Use the installed app offline after its assets have been cached.
 
