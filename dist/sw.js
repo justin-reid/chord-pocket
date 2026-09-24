@@ -1,5 +1,6 @@
-const CACHE='chord-pocket-shell-v7';
-const SHELL=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./favicon.svg','./icon-192.png','./icon-512.png','./chords.json'];
+const CACHE='chord-pocket-shell-v8';
+const STRING_IDS=['e2','a2','d3','g3','b3','e4'];
+const SHELL=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./favicon.svg','./icon-192.png','./icon-512.png','./chords.json'].concat(STRING_IDS.flatMap(id=>[1,2].flatMap(take=>[`./strings/${id}-take${take}.ogg`,`./strings/${id}-take${take}.mp3`])));
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{const keys=await caches.keys();await Promise.all(keys.filter(key=>(key.startsWith('chord-pocket-shell-')&&key!==CACHE)||key.startsWith('chord-pocket-diagrams-')).map(key=>caches.delete(key)));await self.clients.claim();})()));
 self.addEventListener('fetch',event=>{const request=event.request,url=new URL(request.url);if(request.method!=='GET'||url.origin!==self.location.origin||!SHELL.some(path=>new URL(path,self.location.href).pathname===url.pathname))return;event.respondWith(caches.match(request).then(cached=>cached||fetch(request).then(response=>{if(response.ok){const copy=response.clone();caches.open(CACHE).then(cache=>cache.put(request,copy));}return response;}).catch(()=>request.destination==='document'?caches.match('./index.html'):Promise.reject(Error('Offline')))));});

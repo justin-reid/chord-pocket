@@ -103,12 +103,36 @@
           <div class="practice-actions"><button id="restart-practice" class="text-button" type="button">Shuffle again</button><button id="end-practice" class="text-button" type="button">End session</button></div>
         </div>
       </section>
+
+      <section id="strings-view" class="view strings-view" data-view="strings" aria-labelledby="strings-title" hidden>
+        <div class="view-heading">
+          <div><h1 id="strings-title">Strings</h1></div>
+          <span class="result-count" id="strings-progress"></span>
+        </div>
+        <div id="strings-stage" class="strings-stage">
+          <div id="strings-card" class="practice-card strings-card" aria-live="polite">
+            <p id="strings-kicker" class="practice-kicker">Which open string is this?</p>
+            <button id="strings-play" class="strings-play" type="button" aria-label="Play the string"><span class="strings-play-glyph" aria-hidden="true">♪</span><span class="strings-play-label">Play</span></button>
+            <div id="strings-feedback" class="strings-feedback" aria-live="polite"></div>
+            <div id="strings-answers" class="strings-answers" role="group" aria-label="Which string was played"></div>
+            <div id="strings-complete" class="practice-complete" hidden><span class="cover-glyph" aria-hidden="true">✓</span><h2>Round complete</h2><p id="strings-summary" class="practice-summary"></p></div>
+          </div>
+          <div class="practice-actions"><button id="hear-strings" class="text-button" type="button">Hear all strings</button><button id="restart-strings" class="text-button" type="button">Shuffle again</button><button id="end-strings" class="text-button" type="button">End session</button></div>
+          <div id="strings-reference" class="strings-reference" hidden>
+            <h2>Open string reference</h2>
+            <p class="strings-reference-hint">Calibrate your ear — tap a string to hear it.</p>
+            <div id="strings-reference-grid" class="strings-reference-grid"></div>
+            <button id="play-all-strings" class="button button-secondary strings-playall" type="button">Play low to high</button>
+          </div>
+        </div>
+      </section>
     </main>
 
     <nav class="bottom-nav" aria-label="Main navigation">
       <a class="nav-item is-active" data-tab="browse" href="#browse"><span class="nav-icon" aria-hidden="true">⌕</span><span>Browse</span></a>
       <a class="nav-item" data-tab="saved" href="#saved"><span class="nav-icon" aria-hidden="true">＋</span><span>My Chords</span><span id="nav-saved-count" class="nav-badge" hidden></span></a>
       <a class="nav-item" data-tab="practice" href="#practice"><span class="nav-icon" aria-hidden="true">♩</span><span>Practice</span></a>
+      <a class="nav-item" data-tab="strings" href="#strings"><span class="nav-icon" aria-hidden="true">♪</span><span>Strings</span></a>
     </nav>
   </div>
 
@@ -117,6 +141,6 @@
     <div class="detail-body"><div id="detail-diagram"></div><div class="legend"><h3>Diagram key</h3><div class="legend-row"><span class="legend-symbol played"></span><span>Fretted note</span></div><div class="legend-row"><span class="legend-symbol open"></span><span>Open string</span></div><div class="legend-row"><span class="legend-symbol root"></span><span>Root note</span></div><div class="legend-row"><span class="legend-symbol muted">×</span><span>Muted string</span></div></div></div>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-  <script src="app.js?v=4" defer></script>
+  <script src="app.js?v=5" defer></script>
 </body>
 </html>
