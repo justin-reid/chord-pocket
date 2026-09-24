@@ -160,25 +160,29 @@ h2 { letter-spacing: -.03em; }
 /* Strings ear-training view. */
 .strings-stage { max-width: 540px; margin: 10px auto 0; }
 .strings-card { min-height: 520px; }
-.strings-play { width: 148px; height: 148px; margin: 4px auto 0; border-radius: 50%; border: 4px solid #17324d; background: var(--amber); color: var(--amber-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
+.strings-play { width: 122px; height: 122px; margin: 4px auto 0; border-radius: 50%; border: 4px solid #17324d; background: var(--amber); color: var(--amber-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; box-shadow: 0 10px 24px rgba(0,0,0,.2); }
 .strings-play:hover { background: var(--amber-hot); }
 .strings-play:active { transform: scale(.97); }
-.strings-play-glyph { font-size: 42px; line-height: 1; }
+.strings-play-glyph { font-size: 36px; line-height: 1; }
 .strings-play-label { font-size: 14px; font-weight: 800; }
 .strings-play.is-playing { animation: strings-pulse 1.2s ease-in-out infinite; }
 @keyframes strings-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
 .strings-feedback { min-height: 24px; margin-top: 13px; font-size: 14px; font-weight: 700; }
 .strings-feedback.is-correct { color: #14663d; }
 .strings-feedback.is-wrong { color: #b3423a; }
-.strings-answers { margin-top: 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
-.string-answer { min-height: 56px; border-radius: 12px; border: 1px solid #c9d5e3; background: #fff; color: var(--card-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1px; padding: 6px; }
+.strings-answers { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+.strings-nut { height: 6px; border-radius: 3px; background: #17324d; opacity: .6; margin-bottom: 2px; }
+.string-answer { position: relative; min-height: 46px; border: 1px solid #c9d5e3; border-radius: 12px; background: #fff; color: var(--card-ink); display: flex; align-items: center; padding: 8px 12px; overflow: hidden; }
+.string-answer-line { position: absolute; left: 0; right: 0; top: 50%; height: var(--gauge, 2px); transform: translateY(-50%); background: #17324d; opacity: .3; border-radius: 99px; }
+.string-answer-label { position: relative; display: flex; align-items: baseline; gap: 7px; font-weight: 800; font-size: 15px; background: #fff; padding-right: 9px; }
+.string-answer-note { color: var(--card-muted); font-size: 11px; font-weight: 700; }
 .string-answer:disabled { cursor: default; }
-.string-answer-name { font-weight: 800; font-size: 15px; }
-.string-answer-note { color: var(--card-muted); font-size: 11px; }
 .string-answer.is-correct { background: #d9f2e3; border-color: #1a7f4e; }
-.string-answer.is-correct .string-answer-name { color: #14663d; }
+.string-answer.is-correct .string-answer-label { background: #d9f2e3; color: #14663d; }
+.string-answer.is-correct .string-answer-line { background: #1a7f4e; opacity: .8; }
 .string-answer.is-wrong { background: #fde4e1; border-color: #c0392b; animation: strings-shake .3s ease; }
-.string-answer.is-wrong .string-answer-name { color: #9c2f24; }
+.string-answer.is-wrong .string-answer-label { background: #fde4e1; color: #9c2f24; }
+.string-answer.is-wrong .string-answer-line { background: #c0392b; opacity: .8; }
 @keyframes strings-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-4px); } 75% { transform: translateX(4px); } }
 .strings-reference { margin-top: 8px; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; background: rgba(255,255,255,.05); }
 .strings-reference h2 { margin: 0 0 4px; font-size: 18px; }
@@ -189,4 +193,4 @@ h2 { letter-spacing: -.03em; }
 .string-ref-name { font-weight: 800; font-size: 14px; }
 .string-ref-note { color: var(--muted); font-size: 12px; margin-left: auto; text-align: right; }
 .strings-playall { margin-top: 12px; width: 100%; }
-@media (min-width: 620px) { .strings-answers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 620px) { .strings-answers { gap: 8px; } .string-answer { min-height: 52px; } }
