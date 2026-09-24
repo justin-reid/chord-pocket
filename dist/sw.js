@@ -1,4 +1,4 @@
-const CACHE='chord-pocket-shell-v9';
+const CACHE='chord-pocket-shell-v10';
 const STRING_IDS=['e2','a2','d3','g3','b3','e4'];
 const SHELL=['./','./index.html','./styles.css','./app.js','./manifest.webmanifest','./favicon.svg','./icon-192.png','./icon-512.png','./chords.json'].concat(STRING_IDS.flatMap(id=>[1,2].flatMap(take=>[`./strings/${id}-take${take}.ogg`,`./strings/${id}-take${take}.mp3`])));
 self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting())));
