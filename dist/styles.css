@@ -205,6 +205,8 @@ h2 { letter-spacing: -.03em; }
 .scale-root-label { color: var(--card-muted); font-size: 12px; text-align: right; }
 .scale-diagram { display: block; width: min(100%, 390px); height: auto; margin: 0 auto; overflow: visible; }
 .scale-grid-lines line { stroke: #60768d; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.scale-grid-lines .scale-headstock { fill: #f8fafc; stroke: #60768d; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.scale-grid-lines .scale-nut { stroke: #344a62; stroke-width: 3; }
 .scale-grid-lines .scale-string-0 { stroke-width: 3; }
 .scale-grid-lines .scale-string-1 { stroke-width: 2.4; }
 .scale-grid-lines .scale-string-2 { stroke-width: 2; }
