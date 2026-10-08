@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#07182f">
-  <meta name="description" content="A focused pocket reference for guitar chord voicings.">
+  <meta name="description" content="A focused pocket reference for guitar chords and major scale fingerings.">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -104,6 +104,15 @@
         </div>
       </section>
 
+      <section id="scales-view" class="view scales-view" data-view="scales" aria-labelledby="scales-title" hidden>
+        <div class="view-heading">
+          <div><h1 id="scales-title">Major Scale Fingerings</h1></div>
+          <span class="result-count">5 patterns</span>
+        </div>
+        <p class="scales-intro">C-major examples from the five-pattern fingering system. Numbers show the fretting-hand fingers; the outlined note marks the root.</p>
+        <div id="scale-grid" class="scale-grid" role="group" aria-label="Five major scale fingering patterns"></div>
+      </section>
+
       <section id="strings-view" class="view strings-view" data-view="strings" aria-labelledby="strings-title" hidden>
         <div class="view-heading">
           <div><h1 id="strings-title">Strings</h1></div>
@@ -133,6 +142,7 @@
       <a class="nav-item" data-tab="saved" href="#saved"><span class="nav-icon" aria-hidden="true">＋</span><span>My Chords</span><span id="nav-saved-count" class="nav-badge" hidden></span></a>
       <a class="nav-item" data-tab="practice" href="#practice"><span class="nav-icon" aria-hidden="true">♩</span><span>Practice</span></a>
       <a class="nav-item" data-tab="strings" href="#strings"><span class="nav-icon" aria-hidden="true">♪</span><span>Strings</span></a>
+      <a class="nav-item" data-tab="scales" href="#scales"><span class="nav-icon" aria-hidden="true">♬</span><span>Scales</span></a>
     </nav>
   </div>
 
@@ -141,6 +151,6 @@
     <div class="detail-body"><div id="detail-diagram"></div><div class="legend"><h3>Diagram key</h3><div class="legend-row"><span class="legend-symbol played"></span><span>Fretted note</span></div><div class="legend-row"><span class="legend-symbol open"></span><span>Open string</span></div><div class="legend-row"><span class="legend-symbol root"></span><span>Root note</span></div><div class="legend-row"><span class="legend-symbol muted">×</span><span>Muted string</span></div></div></div>
   </dialog>
   <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-  <script src="app.js?v=6" defer></script>
+  <script src="app.js?v=7" defer></script>
 </body>
 </html>

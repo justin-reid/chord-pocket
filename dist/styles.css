@@ -194,3 +194,27 @@ h2 { letter-spacing: -.03em; }
 .string-ref-note { color: var(--muted); font-size: 12px; margin-left: auto; text-align: right; }
 .strings-playall { margin-top: 12px; width: 100%; }
 @media (min-width: 620px) { .strings-answers { gap: 8px; } .string-answer { min-height: 52px; } }
+
+/* Major scale fingering reference. */
+.scales-intro { color: var(--muted); max-width: 760px; line-height: 1.5; font-size: 15px; margin: -5px 0 20px; }
+.scale-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.scale-card { min-width: 0; padding: 16px 14px 12px; border-radius: var(--radius); background: var(--card); color: var(--card-ink); box-shadow: 0 8px 22px rgba(0,0,0,.16); }
+.scale-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }
+.scale-card-heading .eyebrow { color: #b17400; margin-bottom: 3px; }
+.scale-card-heading h2 { margin: 0; font-size: 23px; }
+.scale-root-label { color: var(--card-muted); font-size: 12px; text-align: right; }
+.scale-diagram { display: block; width: min(100%, 390px); height: auto; margin: 0 auto; overflow: visible; }
+.scale-grid-lines line { stroke: #60768d; stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.scale-grid-lines .scale-string-0 { stroke-width: 3; }
+.scale-grid-lines .scale-string-1 { stroke-width: 2.4; }
+.scale-grid-lines .scale-string-2 { stroke-width: 2; }
+.scale-grid-lines .scale-string-3 { stroke-width: 1.7; }
+.scale-grid-lines .scale-string-4 { stroke-width: 1.4; }
+.scale-grid-lines .scale-string-5 { stroke-width: 1.2; }
+.scale-fret-label,.scale-string-label { fill: #5c6e84; font: 12px ui-sans-serif,system-ui,sans-serif; text-anchor: middle; }
+.scale-string-label { font-weight: 750; }
+.scale-note { fill: #17324d; }
+.scale-root-ring { fill: none; stroke: #c17c00; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
+.scale-finger { fill: #fff; font: 800 10px ui-sans-serif,system-ui,sans-serif; text-anchor: middle; pointer-events: none; }
+@media (min-width: 760px) { .scale-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 520px) { .bottom-nav { padding-left: 4px; padding-right: 4px; } .nav-item { min-width: 0; flex: 1; font-size: 11px; } .nav-icon { font-size: 20px; } .scale-card { padding-left: 9px; padding-right: 9px; } .scale-card-heading { flex-direction: column; align-items: flex-start; gap: 4px; } .scale-root-label { width: 100%; min-width: 0; white-space: normal; overflow-wrap: anywhere; text-align: left; font-size: 11px; } .scale-diagram { max-width: 330px; } }
