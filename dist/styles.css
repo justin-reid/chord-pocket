@@ -214,6 +214,7 @@ h2 { letter-spacing: -.03em; }
 .scale-grid-lines .scale-string-4 { stroke-width: 1.4; }
 .scale-grid-lines .scale-string-5 { stroke-width: 1.2; }
 .scale-fret-label,.scale-string-label { fill: #5c6e84; font: 12px ui-sans-serif,system-ui,sans-serif; text-anchor: middle; }
+.scale-omission { fill: #5c6e84; font: 800 18px ui-sans-serif,system-ui,sans-serif; text-anchor: middle; pointer-events: none; }
 .scale-string-label { font-weight: 750; }
 .scale-note { fill: #17324d; }
 .scale-root-ring { fill: none; stroke: #c17c00; stroke-width: 2.5; vector-effect: non-scaling-stroke; }
