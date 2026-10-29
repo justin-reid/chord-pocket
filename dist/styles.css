@@ -197,8 +197,16 @@ h2 { letter-spacing: -.03em; }
 
 /* Major scale fingering reference. */
 .scales-intro { color: var(--muted); max-width: 760px; line-height: 1.5; font-size: 15px; margin: -5px 0 20px; }
-.scale-section-title { margin: 6px 0 2px; font-size: 21px; }
-.scale-section-title + .scales-intro { margin-top: -1px; }
+.scale-section { border-bottom: 1px solid rgba(96,118,141,.22); padding-bottom: 6px; margin-bottom: 10px; }
+.scale-section:last-child { border-bottom: 0; }
+.scale-section-summary { display: flex; align-items: center; gap: 10px; margin: 4px 0 0; padding: 8px 0; cursor: pointer; list-style: none; }
+.scale-section-summary::-webkit-details-marker { display: none; }
+.scale-section-summary::after { content: ''; width: 9px; height: 9px; flex: none; margin-left: 2px; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(-45deg); transition: transform .18s ease; opacity: .55; }
+.scale-section[open] > .scale-section-summary::after { transform: rotate(45deg); }
+.scale-section-summary:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 6px; }
+.scale-section-title { margin: 0; font-size: 21px; flex: 1; }
+.scale-section-meta { color: var(--muted); font-size: 12px; font-weight: 650; white-space: nowrap; }
+.scale-section .scales-intro { margin: 2px 0 18px; }
 .scale-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .scale-card { min-width: 0; padding: 16px 14px 12px; border-radius: var(--radius); background: var(--card); color: var(--card-ink); box-shadow: 0 8px 22px rgba(0,0,0,.16); }
 .scale-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 6px; }

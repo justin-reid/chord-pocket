@@ -107,14 +107,17 @@
       <section id="scales-view" class="view scales-view" data-view="scales" aria-labelledby="scales-title" hidden>
         <div class="view-heading">
           <div><h1 id="scales-title">Scales</h1></div>
-          <span class="result-count">10 patterns</span>
         </div>
-        <h2 class="scale-section-title">Major scale fingerings</h2>
-        <p class="scales-intro">C-major examples from the five-pattern fingering system. Numbers show the fretting-hand fingers; the outlined note marks the root.</p>
-        <div id="scale-grid" class="scale-grid" role="group" aria-label="Five major scale fingering patterns"></div>
-        <h2 class="scale-section-title">Pentatonic scale patterns</h2>
-        <p class="scales-intro">A-minor examples — the same five shapes as C major pentatonic, with the root moved. Numbers show the fretting-hand fingers; every ringed note is an A root.</p>
-        <div id="pentatonic-grid" class="scale-grid" role="group" aria-label="Five pentatonic scale patterns"></div>
+        <details class="scale-section" open>
+          <summary class="scale-section-summary"><h2 class="scale-section-title">Major scale fingerings</h2><span class="scale-section-meta">5 patterns</span></summary>
+          <p class="scales-intro">C-major examples from the five-pattern fingering system. Numbers show the fretting-hand fingers; the outlined note marks the root.</p>
+          <div id="scale-grid" class="scale-grid" role="group" aria-label="Five major scale fingering patterns"></div>
+        </details>
+        <details class="scale-section" open>
+          <summary class="scale-section-summary"><h2 class="scale-section-title">Pentatonic scale patterns</h2><span class="scale-section-meta">5 patterns</span></summary>
+          <p class="scales-intro">A-minor examples — the same five shapes as C major pentatonic, with the root moved. Numbers show the fretting-hand fingers; every ringed note is an A root.</p>
+          <div id="pentatonic-grid" class="scale-grid" role="group" aria-label="Five pentatonic scale patterns"></div>
+        </details>
       </section>
 
       <section id="strings-view" class="view strings-view" data-view="strings" aria-labelledby="strings-title" hidden>
